@@ -6,9 +6,6 @@ telemetry = false
 requirements = []
 analysis = ["check_checker"]
 costs_version = 2
-[contracts.Digital_will]
-path = "contracts/Digital_will.clar"
-depends_on = []
 
 [contracts.digital_will]
 path = "contracts/digital_will.clar"

@@ -1,6 +1,6 @@
 
 ;; digital_will
-;; <add a description here>
+
 
 ;; errors
 ;;

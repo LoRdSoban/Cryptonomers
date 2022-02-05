@@ -9,7 +9,7 @@
 (define-constant WILL_DOESNT_EXISTS (err u101))
 (define-constant NOT_LICENSED_ENTITY (err u102))
 
-(define-constant licensed 'STNHKEPYEPJ8ET55ZZ0M5A34J0R3N5FM2CMMMAZ6)
+(define-constant licensed 'STNHKEPYEPJ8ET55ZZ0M5A34J0R3N5FM2CMMMAZ6) ;; wallet 9
 ;; data maps and vars
 ;;
 
@@ -66,6 +66,8 @@
     (map-set will_info {will-id: current_will_id} {beneficiary: beneficiary, amount: amount} )
 
     (try! (will_amount_transfer tx-sender licensed amount))
+
+    (var-set last_will_id current_will_id)
     
 )
 
@@ -97,7 +99,9 @@
 
     (try! (will_amount_transfer tx-sender beneficiary amount))
     (try! (nft-burn? will_nft will_id owner))
-    
+
+    (map-delete will_owners {owner: owner})
+    (map-delete will_info {will-id: will_id})
     
 )
 

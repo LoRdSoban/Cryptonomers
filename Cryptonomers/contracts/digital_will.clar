@@ -9,7 +9,7 @@
 (define-constant WILL_DOESNT_EXISTS (err u101))
 (define-constant NOT_LICENSED_ENTITY (err u102))
 
-(define-constant licensed 'STNHKEPYEPJ8ET55ZZ0M5A34J0R3N5FM2CMMMAZ6) ;; wallet 9
+
 ;; data maps and vars
 ;;
 
@@ -18,8 +18,9 @@
 (define-map will_owners { owner: principal } { will-id: uint } )
 (define-map will_info {will-id: uint } {beneficiary: principal, amount: uint} )
 
-
 (define-data-var last_will_id uint u0)
+
+(define-constant licensed 'STNHKEPYEPJ8ET55ZZ0M5A34J0R3N5FM2CMMMAZ6) ;; wallet 9
 
 ;; private functions
 ;;

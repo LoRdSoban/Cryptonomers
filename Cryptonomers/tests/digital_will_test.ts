@@ -38,6 +38,9 @@ Clarinet.test({
         block.receipts[1].result.expectErr().expectUint(100);
 
         block.receipts[2].result.expectOk().expectBool(true);
+        
+        let second_will_id = chain.callReadOnlyFn('digital_will', 'get_will_id', [types.principal(wallet3.address)], licensed.address)
+        second_will_id.result.expectUint(2);
 
         // The principal used to call the function is not licensed
         let error_beneficiary_address = chain.callReadOnlyFn('digital_will', 'get_will_beneficiary', [types.uint(1)], wallet1.address)
@@ -55,8 +58,7 @@ Clarinet.test({
         let wrong_will_id = chain.callReadOnlyFn('digital_will', 'get_will_id', [types.principal(wallet2.address)], licensed.address)
         wrong_will_id.result.expectUint(0);
 
-        let second_will_id = chain.callReadOnlyFn('digital_will', 'get_will_id', [types.principal(wallet3.address)], licensed.address)
-        second_will_id.result.expectUint(2);
+        
 
         block = chain.mineBlock([
 
